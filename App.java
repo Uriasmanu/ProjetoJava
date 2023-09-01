@@ -1,32 +1,29 @@
 import java.util.Scanner;
-
-public class SPCarProgram {
+public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String modelo;
+        int dias;
+        int km;
+        int diarias = 30;
+        double total;
+        double taxaKm = 0.20;
+       
+        Scanner leitor = new Scanner(System.in);
 
-        System.out.print("Digite o modelo do carro alugado: ");
-        String modeloCarro = scanner.nextLine();
+System.out.println("Seja bem vindo(a) ao sistema da Loja  SPCar");
 
-        System.out.print("Digite o valor da diária para locação: ");
-        double valorDiaria = scanner.nextDouble();
+        System.out.println("Por gentileza digite o modelo do carro escolhido");
+        modelo = leitor.next();
 
-        System.out.print("Digite a quantidade de dias de locação: ");
-        int qtdDiasLocacao = scanner.nextInt();
 
-        System.out.print("Digite a quantidade de Km percorridos: ");
-        int qtdKmPercorridos = scanner.nextInt();
+        System.out.println("Digite quantos dias você utilizou o " + modelo);
+        dias = leitor.nextInt();
 
-        double precoTotal = calcularPrecoTotal(valorDiaria, qtdDiasLocacao, qtdKmPercorridos);
 
-        System.out.println("Modelo do carro: " + modeloCarro);
-        System.out.println("Valor total a pagar: R$" + precoTotal);
-
-        scanner.close();
-    }
-
-    public static double calcularPrecoTotal(double valorDiaria, int qtdDiasLocacao, int qtdKmPercorridos) {
-        double precoDiarias = valorDiaria * qtdDiasLocacao;
-        double precoKmRodado = 0.20 * qtdKmPercorridos;
-        return precoDiarias + precoKmRodado;
+        System.out.println("Digite quantos km voce rodou com o " + modelo);
+        km = leitor.nextInt();
+        total = (dias * diarias) + (km * taxaKm);
+        System.out.println("O valor a ser pago pelo aluguel do " + modelo + " é " + total);
+         
     }
 }
